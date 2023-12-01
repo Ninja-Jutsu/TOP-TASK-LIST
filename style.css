@@ -1,0 +1,112 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --headerFonts: new;
+    --normalTextFont: new;
+    --mainBgColor: #d1d5db;
+}
+
+    
+
+#container {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background-color: var(--mainBgColor);
+    flex-grow: 1;
+}
+
+
+/* Header */
+header {
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    align-content: center;
+}
+
+header img {
+    width: 50px;
+    height: auto;
+    align-self: center;
+    margin-left: 5px;
+}
+
+header h2 {
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+header button{
+    justify-self: end;
+    align-self: center;
+
+    max-width: 12vw;
+    min-width: 10vw;
+    height: 6vh;
+
+    background-color: transparent;
+    border: none;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+header button:hover {
+    scale: 0.97;
+    opacity: 0.6;
+}
+
+header button img{
+    align-self: center;
+    justify-self: center; 
+}
+
+
+
+#main{
+    display: grid;
+    grid-template-columns: 200px 300px 150px 100px;
+    column-gap: 30px;
+    row-gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.add-btn{
+    font-size: 15px;
+    background-color: green;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 10px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.input-task {
+    font-size: 15px;
+    padding: 10px 5px;
+}
+
+.input-date {
+    font-size: 15px;
+    padding: 7.5px 5px;
+}
+
+.js-button {
+    font-size: 15px;
+    border: none;
+    background-color: darkred;
+    color: aliceblue;
+    font-weight: bold;
+    padding: 10px 0;
+    cursor: pointer;
+}
