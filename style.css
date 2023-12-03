@@ -12,10 +12,12 @@
     --mainBgColor: #d1d5db;
 }
 
-    
-
 #container {
-    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 98.5vh;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     background-color: var(--mainBgColor);
@@ -26,22 +28,27 @@
 /* Header */
 header {
     display: grid;
+    min-height: 10vh;
     grid-template-columns: repeat(3 , 1fr);
     align-content: center;
+    border-bottom: 2px solid grey;
+    box-shadow: 0px 0px 5px currentcolor;
 }
 
 header img {
-    width: 50px;
+    width: 70px;
     height: auto;
     align-self: center;
     margin-left: 5px;
+    cursor: pointer;
 }
 
 header h2 {
     text-align: center;
     align-self: center;
     justify-self: center;
-
+    font-size: 2.5rem;
+    color: darkblue;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -56,6 +63,7 @@ header button{
     background-color: transparent;
     border: none;
     margin-right: 5px;
+    margin-bottom: 10px;
     cursor: pointer;
 }
 
@@ -69,44 +77,180 @@ header button img{
     justify-self: center; 
 }
 
+/* MAIN */
 
 
 #main{
     display: grid;
-    grid-template-columns: 200px 300px 150px 100px;
-    column-gap: 30px;
-    row-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin: 10px;
+}
+
+#main div p{
+    font-size: 1.5rem;
+    background-color: transparent;
+    border-style: none;
+    text-align: center;
+}
+
+
+#main .box{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    background-color: transparent;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+#main .box button {
+    align-self: flex-end;
+    border: none;
+    background-color: lightcoral;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px;
+}
+/* Projects */
+#projects {
+    display: none;
+    flex-direction: column;
     align-items: center;
-    margin-top: 10px;
-    margin-left: 10px;
+    gap: 10px;
+
+    padding: 5px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-.add-btn{
-    font-size: 15px;
-    background-color: green;
-    color: aliceblue;
-    font-weight: bold;
-    padding: 10px 0;
+.project{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #c2c3c5;
+    font-size: 2rem;
+    width: 100%;
+}
+
+.project-header .delete-project{
+    align-self: flex-start;
+    flex-grow: 0;
     border: none;
+    background-color: lightcoral;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
-.input-task {
-    font-size: 15px;
-    padding: 10px 5px;
+.project-header {
+    flex-grow: 1;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 0px 3px;
+    margin-bottom: 10px;
 }
 
-.input-date {
-    font-size: 15px;
-    padding: 7.5px 5px;
+.project .project-header{
+    display: flex;
+    justify-content: space-between;
 }
 
-.js-button {
-    font-size: 15px;
+.project .tasks{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project .task{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.task .delete-task{
     border: none;
-    background-color: darkred;
-    color: aliceblue;
+    background-color: lightcoral;
+    font-size: 2rem;
     font-weight: bold;
-    padding: 10px 0;
+    padding: 2px 7px;
+    border-radius: 8px;
     cursor: pointer;
 }
+
+/* ADD NEW LIST */
+#add-new-list {
+    justify-self: flex-end;
+    align-self: flex-end;
+}
+#add-new-list button{
+    font-size: 3rem;
+    background-color: rgb(74, 234, 74);
+    border-style: none;
+    border-radius: 36px;
+    padding: 0.5rem 1.3rem;
+    margin: 5px 5px;
+    cursor: pointer;
+}
+#add-new-list button:hover{
+    scale: 0.96;
+    font-size: 2.9rem;
+    background-color: rgb(106, 237, 106);
+    transform: rotate(160deg); 
+}
+
+/* NEW LIST */
+#new-list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 20px;
+
+    width: 50vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: rgb(175, 178, 175);
+    font-size: 1.5rem;
+    padding: 20px 10px;
+    border-radius: 8px;
+}
+
+#new-list .buttons{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttons button {
+    border-style: none;
+    font-size: 1.5rem;
+    padding: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#cancel{
+    background-color: lightcoral;
+}
+
+#create-list{
+    background-color: lightgreen;
+}
+
+
+#list-name {
+    font-size: 1.5rem;
+    padding: 10px;
+}
+

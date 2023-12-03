@@ -4,25 +4,60 @@
         <title>To-Do</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
-        <script src="index.js" defer></script>
+        <script type="module" src="index.js"></script>
     </head>
 <body>
 
     <div id="container">
         <header>
-            <img src="#" alt="Logo">
+            <img src="/img/todologo.svg" alt="Logo">
             <h2>LET'S DO IT</h2>
             <button class="menu"><img src="./img/menu.svg" alt="menu"></button>
         </header>
         
         <div id="main">
-            <input type="text" placeholder="The Verb" class="input-task">
-            <input type="text" placeholder="an example" class="input-date">
-            <input type="text" placeholder="Noun" class="input-date">
-            <button class="add-btn">Add</button>
+            <!-- <div class="box">
+                <button>X</button>
+                <p>Gym</p>
+            </div> -->
         </div>
-        <div class="js-todo-list todo-input-grid" > </div>
+        <div id="projects">
+            <div class="project">
+                <div class="project-header">
+                    <h1></h1>
+                    <button class="delete-project">X</button>
+                </div>
+                <div id="tasks">
+                    <!-- <div class="task">
+                        <label for="tast1"> Chest Workout</label>
+                        <input type="checkbox" id="task1" name="task1" >
+                        <button class="delete-task">X</button>
+                    </div>
+                    <div class="task">
+                        <label for="tast2"> Chest Workout</label>
+                        <input type="checkbox" id="task2" name="task2" >
+                        <button class="delete-task">X</button>
+                    </div>
+                    <div class="task">
+                        <label for="tast3"> Chest Workout</label>
+                        <input type="checkbox" id="task3" name="task3" >
+                        <button class="delete-task">X</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div id="add-new-list">
+            <button id="add">+</button>
+        </div>
+        <div id="new-list">
+            <label for="list-name">List Name</label>
+            <input id="list-name" type="text" maxlength="12">
+            <div class="buttons">
+                <button id="cancel">Cancel</button>
+                <button id="create-list">Create List</button>
+            </div>
+            
+        </div>
     </div>
-
 </body>
 </html>
