@@ -14,10 +14,9 @@
 
 #container {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 98.5vh;
+    display: grid;
+    grid-template-rows: 100px 1fr 100px;
+    min-height: 98.4vh;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     background-color: var(--mainBgColor);
@@ -199,11 +198,11 @@ header button img{
     border-style: none;
     border-radius: 36px;
     padding: 0.5rem 1.3rem;
-    margin: 5px 5px;
+    margin: 10px 10px;
     cursor: pointer;
 }
 #add-new-list button:hover{
-    scale: 0.96;
+    scale: 0.98;
     font-size: 2.9rem;
     background-color: rgb(106, 237, 106);
     transform: rotate(160deg); 
@@ -211,7 +210,7 @@ header button img{
 
 /* NEW LIST */
 #new-list {
-    display: flex;
+    display: none;
     flex-direction: column;
     position: absolute;
     gap: 20px;
