@@ -19,6 +19,8 @@ export default function generateDom(){
             deleteProject.classList.add(`exit-project${i}`)
             deleteProject.classList.add('exit-project')
             deleteProject.innerText = 'X'
+            const tasks = document.createElement('div')
+            tasks.classList.add('tasks')
             const addTask = document.createElement('button')
             addTask.classList.add('add-task')
             addTask.classList.add(`add-task${i}`)
@@ -27,6 +29,7 @@ export default function generateDom(){
             projectHeader.appendChild(projectTitle)
             projectHeader.appendChild(deleteProject)
             project.appendChild(projectHeader)
+            project.appendChild(tasks)
             project.appendChild(addTask)
             projectsContainer.appendChild(project)
         }

@@ -149,8 +149,8 @@ header button img{
 }
 
 .project{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr 2fr 0.5fr;
     padding: 10px;
     background-color: var(--popupBgColor);
     font-size: 2rem;
@@ -204,6 +204,20 @@ header button img{
     padding: 2px 7px;
     border-radius: 8px;
     cursor: pointer;
+}
+
+.add-task{
+    width: 20%;
+    justify-self: end;
+    border: none;
+    background-color: lightgreen;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.add-task:hover{
+    scale: 0.98;
+    background-color: rgb(163, 240, 163);
 }
 
 /* ADD NEW LIST */
