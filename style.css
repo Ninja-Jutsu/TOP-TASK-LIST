@@ -289,6 +289,7 @@ header button img{
 /* LIST PIPUP DETAILS FILLING */
 #list-details{
     display: none;
+    flex-direction: column;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -316,7 +317,7 @@ header button img{
 
 #fill #note{
     grid-row: 2/ 4;
-    padding: 20px;
+    padding: 10px;
     font-size: 1rem;
     border-style: none;
     border-radius: 8px;
@@ -365,14 +366,35 @@ header button img{
     background-color: var(--selectColor);
 }
 
-#fill #delete-fill{
-    grid-column: 2/3;
+#buttons {
+    grid-column: 1/3;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#buttons button{
     padding: 5px;
-    margin-right: 5px;
-    justify-self: end;
-    background-color: lightcoral;
     font-weight: bold;
     border-style: none;
     border-radius: 8px;
     font-size: 1.1rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+#buttons button:hover {
+    scale: 0.9;
+    border-color: gold;
+}
+
+#buttons #delete-fill{
+    margin-right: 20px;
+    background-color: lightcoral;
+
+}
+
+#buttons #add-to-project{
+    margin-left: 20px;
+    background-color: lightgreen;
 }

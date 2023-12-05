@@ -2,6 +2,8 @@ import fillProjectDetails from "./fill-project.js"
 export default function generateDom(){
     let tasksArray = []
     const createBtn = document.getElementById('create-list')
+    const cancelBtn = document.getElementById('cancel')
+    const newList = document.getElementById('new-list')
     const newListName = document.getElementById('list-name')
     const projectsContainer = document.getElementById('projects')
     const main = document.getElementById('main')
@@ -51,7 +53,10 @@ export default function generateDom(){
         tasksArray = []
         newListName.value = ''
         fillProjectDetails()
-        const newList = document.getElementById('new-list')
+        
+        newList.style.display = 'none'
+    })
+    cancelBtn.addEventListener('click', () => {
         newList.style.display = 'none'
     })
 }

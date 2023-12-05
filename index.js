@@ -7,3 +7,4 @@ addBtn.addEventListener('click', () => {
 })
 
 generateDom()
+
