@@ -1,4 +1,4 @@
-export default class City {
+export default class Constructor {
     constructor(title ,notes, date, priority ) {
     this.title = title
     this.notes = notes;

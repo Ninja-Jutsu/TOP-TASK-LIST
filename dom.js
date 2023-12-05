@@ -16,8 +16,8 @@ export default function generateDom(){
             project.classList.add(`project${i}`)
             const projectHeader = document.createElement('div')
             projectHeader.classList.add('project-header')
-            projectHeader.innerText = tasksArray[i]
-            const projectTitle = document.createElement('h1')
+            const projectTitle = document.createElement('h2')
+            projectTitle.innerText = tasksArray[i]
             projectTitle.classList.add('project-title')
             const deleteProject = document.createElement('button')
             deleteProject.classList.add(`exit-project${i}`)
