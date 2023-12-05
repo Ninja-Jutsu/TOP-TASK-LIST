@@ -132,7 +132,7 @@ header button img{
 }
 /* Projects */
 #projects {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 10px;
@@ -149,7 +149,7 @@ header button img{
 }
 
 .project{
-    display: grid;
+    display: none;
     grid-template-rows: 1fr 2fr 0.5fr;
     padding: 10px;
     background-color: var(--popupBgColor);

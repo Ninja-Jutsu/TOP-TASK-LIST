@@ -1,3 +1,4 @@
+import fillProjectDetails from "./fill-project.js"
 export default function generateDom(){
     let tasksArray = []
     const createBtn = document.getElementById('create-list')
@@ -6,10 +7,11 @@ export default function generateDom(){
     const main = document.getElementById('main')
     createBtn.addEventListener('click', () => {
         tasksArray.push(newListName.value)
-
+        
         for (let i = 0; i < tasksArray.length; i++){
             const project = document.createElement('div')
             project.classList.add('project')
+            project.classList.add(`project${i}`)
             const projectHeader = document.createElement('div')
             projectHeader.classList.add('project-header')
             projectHeader.innerText = tasksArray[i]
@@ -48,7 +50,7 @@ export default function generateDom(){
         }
         tasksArray = []
         newListName.value = ''
-
+        fillProjectDetails()
         const newList = document.getElementById('new-list')
         newList.style.display = 'none'
     })
