@@ -132,10 +132,16 @@ header button img{
 }
 /* Projects */
 #projects {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+
+    width: 90vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     padding: 5px;
     margin: 10px;
@@ -151,7 +157,7 @@ header button img{
     width: 100%;
 }
 
-.project-header .delete-project{
+.exit-project{
     align-self: flex-start;
     flex-grow: 0;
     border: none;
@@ -179,6 +185,7 @@ header button img{
 .project .tasks{
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 10px;
 }
@@ -267,7 +274,7 @@ header button img{
 
 /* LIST PIPUP DETAILS FILLING */
 #list-details{
-    /* display: none; */
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;

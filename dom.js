@@ -4,21 +4,30 @@ export default function generateDom(){
     const newListName = document.getElementById('list-name')
     const projectsContainer = document.getElementById('projects')
     const main = document.getElementById('main')
-    console.log("ISMAIL")
     createBtn.addEventListener('click', () => {
         tasksArray.push(newListName.value)
 
         for (let i = 0; i < tasksArray.length; i++){
             const project = document.createElement('div')
-            project.classList.add(`project${i}`)
-            const projectHeader = document.createElement('h1')
+            project.classList.add('project')
+            const projectHeader = document.createElement('div')
+            projectHeader.classList.add('project-header')
             projectHeader.innerText = tasksArray[i]
+            const projectTitle = document.createElement('h1')
+            projectTitle.classList.add('project-title')
             const deleteProject = document.createElement('button')
-            deleteProject.classList.add(`delete-project${i}`)
+            deleteProject.classList.add(`exit-project${i}`)
+            deleteProject.classList.add('exit-project')
             deleteProject.innerText = 'X'
+            const addTask = document.createElement('button')
+            addTask.classList.add('add-task')
+            addTask.classList.add(`add-task${i}`)
+            addTask.innerText = 'ADD TASK'
 
+            projectHeader.appendChild(projectTitle)
+            projectHeader.appendChild(deleteProject)
             project.appendChild(projectHeader)
-            project.appendChild(deleteProject)
+            project.appendChild(addTask)
             projectsContainer.appendChild(project)
         }
         for (let i = 0; i < tasksArray.length; i++){
