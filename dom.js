@@ -1,3 +1,4 @@
+import elementFactory from "./create-elements.js"
 import fillProjectDetails from "./fill-project.js"
 export default function generateDom(){
     let tasksArray = []
@@ -10,25 +11,27 @@ export default function generateDom(){
     createBtn.addEventListener('click', () => {
         tasksArray.push(newListName.value)
         
+    //! Generate DOM for main screen
+    for (let i = 0; i < tasksArray.length; i++){
+        const card = elementFactory('div','box','')
+        // card.classList.add(`box${i}`)
+        const dltBtn = elementFactory('button','dltBtn' ,'X')
+        const para = elementFactory('p','para',tasksArray[i])
+        card.appendChild(dltBtn)
+        card.appendChild(para)
+        main.appendChild(card)
+    }
+    //! Generate Add task Window
         for (let i = 0; i < tasksArray.length; i++){
-            const project = document.createElement('div')
-            project.classList.add('project')
-            project.classList.add(`project${i}`)
-            const projectHeader = document.createElement('div')
-            projectHeader.classList.add('project-header')
-            const projectTitle = document.createElement('h2')
-            projectTitle.innerText = tasksArray[i]
-            projectTitle.classList.add('project-title')
-            const deleteProject = document.createElement('button')
-            deleteProject.classList.add(`exit-project${i}`)
-            deleteProject.classList.add('exit-project')
-            deleteProject.innerText = 'X'
-            const tasks = document.createElement('div')
-            tasks.classList.add('tasks')
-            const addTask = document.createElement('button')
-            addTask.classList.add('add-task')
-            addTask.classList.add(`add-task${i}`)
-            addTask.innerText = 'ADD TASK'
+            const project = elementFactory('div','project','')
+            // project.classList.add(`project${i}`)
+            const projectHeader = elementFactory('div','project-header','')
+            const projectTitle = elementFactory('h2','project-title',tasksArray[i])
+            const deleteProject = elementFactory('button','exit-project','X')
+            // deleteProject.classList.add(`exit-project${i}`)
+            const tasks = elementFactory('div','tasks','')
+            const addTask = elementFactory('button','add-task','ADD TASK')
+            // addTask.classList.add(`add-task${i}`)
 
             projectHeader.appendChild(projectTitle)
             projectHeader.appendChild(deleteProject)
@@ -37,19 +40,7 @@ export default function generateDom(){
             project.appendChild(addTask)
             projectsContainer.appendChild(project)
         }
-        for (let i = 0; i < tasksArray.length; i++){
-            const card = document.createElement('div')
-            card.classList.add(`box${i}`)
-            card.classList.add('box')
-            const dltBtn = document.createElement('button')
-            dltBtn.innerText = 'X'
-            const para = document.createElement('p')
-            para.innerText = tasksArray[i]
-
-            card.appendChild(dltBtn)
-            card.appendChild(para)
-            main.appendChild(card)
-        }
+    
         tasksArray = []
         newListName.value = ''
         fillProjectDetails()
