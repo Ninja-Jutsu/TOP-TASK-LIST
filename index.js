@@ -16,8 +16,8 @@ createBoxBtn.addEventListener('click', () => {
     const listNameInput = document.getElementById('list-name')
 
     mainScreen.appendChild(generateDomForMainScreen(listNameInput.value))
+    toggleBtnClass(listNameInput.value)
     listNameInput.value = ''
-    toggleBtnClass()
 })
 
 cancelCreateBoxBtn.addEventListener('click', hideListMaker)
