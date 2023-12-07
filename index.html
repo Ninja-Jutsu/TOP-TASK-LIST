@@ -15,36 +15,32 @@
             <button class="menu"><img src="./img/menu.svg" alt="menu"></button>
         </header>
         
-        <div id="main"></div>
+
+        <div id="main-screen">
+            <!-- Insert CARDS here -->
+        </div>
+
+
         <div id="add-new-list">
             <button id="add">+</button>
         </div>
-        <div id="projects">
-            <!-- <div class="project">
-                <div class="project-header">
-                    <h1 class="project-title"></h1>
-                    <button class="delete-project">X</button>
-                </div>
-                <div id="tasks"> 
-                     <div class="task">
-                        <label for="tast1"> Chest Workout</label>
-                        <input type="checkbox" id="task1" name="task1" >
-                        <button class="delete-task">X</button>
-                    </div>
-                    <div class="task">
-                        <label for="tast2"> Chest Workout</label>
-                        <input type="checkbox" id="task2" name="task2" >
-                        <button class="delete-task">X</button>
-                    </div>
-                    <div class="task">
-                        <label for="tast3"> Chest Workout</label>
-                        <input type="checkbox" id="task3" name="task3" >
-                        <button class="delete-task">X</button>
-                    </div>
-                </div>
-                <button class="add-task">Add Task</button> 
-            </div> -->
+
+
+        <div id="lists-container">
+            <!-- Insert Projects here -->
         </div>
+
+
+        <div id="new-list">
+            <label for="list-name">List Name:</label>
+            <input id="list-name" type="text" maxlength="12">
+            <div class="buttons">
+                <button id="cancel-box-creation">Cancel</button>
+                <button id="create-list">Create List</button>
+            </div> 
+        </div>
+
+
         <div id="list-details">
             <h2 id="project-title"></h2>
             <div id="fill">
@@ -73,18 +69,11 @@
                     </div>
                 </div>
                 <div id="buttons">
-                    
+                    <button id="add-to-project">Add Task</button>
                     <button id="delete-fill">Cancel</button>
                 </div>
             </div>
         </div>
-    <div id="new-list">
-        <label for="list-name">List Name</label>
-        <input id="list-name" type="text" maxlength="12">
-        <div class="buttons">
-            <button id="cancel">Cancel</button>
-            <button id="create-list">Create List</button>
-        </div> 
-    </div>
+
 </body>
 </html>

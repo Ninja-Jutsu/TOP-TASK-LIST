@@ -88,17 +88,17 @@ header button img{
     justify-self: center; 
 }
 
-/* MAIN */
+/* MAIN-screen */
 
 
-#main{
+#main-screen{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
     margin: 10px;
 }
 
-#main div p{
+#main-screen div p{
     font-size: 1.5rem;
     background-color: transparent;
     border-style: none;
@@ -106,7 +106,7 @@ header button img{
 }
 
 
-#main .box{
+#main-screen .box{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -119,7 +119,7 @@ header button img{
     cursor: pointer;
 }
 
-#main .box button {
+#main-screen .box button {
     align-self: flex-end;
     border: none;
     background-color: lightcoral;
@@ -131,7 +131,7 @@ header button img{
     margin: 5px;
 }
 /* Projects */
-#projects {
+#lists-container {
     display: none;
     flex-direction: column;
     align-items: center;
@@ -415,7 +415,7 @@ header button img{
     border-color: gold;
 }
 
-#buttons #delete-fill{
+#buttons .delete-fill{
     margin-right: 20px;
     background-color: lightcoral;
 
