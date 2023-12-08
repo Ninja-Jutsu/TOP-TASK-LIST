@@ -22,12 +22,23 @@ export function createTasksDiv(){
     const allTasksDivs = document.getElementsByClassName('tasks')
     for (let i= 0; i< 9; i++){
         if (addNewTaskBtn.classList.contains(`add-task${i}`)){
-                const tasks = elementFactory('div', `tasks`,'')
+            const tasks = elementFactory('div', `tasks`,'')
+            Alist.appendChild(tasks)  
+            if (allTasksDivs[i].classList.contains(`tasks${i}`) != true){
+                tasks.classList.add(`tasks${i}`)
                 tasks.setAttribute('id',`tasks${i}`)
-                Alist.appendChild(tasks)
+            }              
+        }
+    }
+    //+ REMOVE EXTRA TASKS(UNUSED):
+    for (let i = 0; i < allTasksDivs.length; i++){
+        if(!allTasksDivs[i].classList.contains(`tasks${i}`)){
+            allTasksDivs[i].remove()
         }
     }
 }
+
+
 
 export function createElementsWithGivenInputsThenAppend(obj){
     const appendToTasksBtn = document.getElementById('add-to-project')
