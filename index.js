@@ -1,6 +1,6 @@
 import generateDomForMainScreen, {toggleBtnClass}from "./generate-cards.js"
-import displayListMaker, { hideListMaker } from "./display-list-maker.js"
-import displayProjectsContainer from "./display-projects-container.js"
+import displayListMaker, { hideListMaker, displayTaskDetailsForm, hideProjectsContainer, hideTaskDetailsForm } from "./display-popups.js"
+import collectTaskDetails, {createTasksDiv, createElementsWithGivenInputsThenAppend} from "./collect-task-details.js"
 
 
 //+ Display newList generator:
@@ -17,17 +17,28 @@ createBoxBtn.addEventListener('click', () => {
 
     mainScreen.appendChild(generateDomForMainScreen(listNameInput.value))
     toggleBtnClass()
+    hideListMaker()
     listNameInput.value = ''
 })
 
 cancelCreateBoxBtn.addEventListener('click', hideListMaker)
 
-//+ Collect Task Details:
-const addToListsBtn = document.getElementById('add-to-project')
-addToListsBtn.addEventListener()
 
+//+ Display Task Details form:
+const addTaskBtn = document.getElementById('add-task')
+addTaskBtn.addEventListener("click", () => {
+    displayTaskDetailsForm()
+})
 
+//+ CREATE INDIVIDUAL TASKS DIV:
+const addNewTaskBtn = document.getElementById('add-task')
+addNewTaskBtn.addEventListener('click',createTasksDiv)
 
+const appendToTasksBtn = document.getElementById('add-to-project')
+appendToTasksBtn.addEventListener('click', () => {
+    createElementsWithGivenInputsThenAppend(collectTaskDetails())
+    hideTaskDetailsForm()
+})
 
 
 
