@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To-Do</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <script type="module" src="index.js"></script>
+    </head>
+<body>
+
+    <div id="container">
+        <header>
+            <img src="/img/todologo.svg" alt="Logo">
+            <h2>LET'S DO IT</h2>
+            <button class="menu"><img src="./img/menu.svg" alt="menu"></button>
+        </header>
+        
+        <div id="main">
+
+        </div>
+        <div id="add-new-list">
+            <button id="add">+</button>
+        </div>
+        <div id="projects">
+            <!-- <div class="project">
+                <div class="project-header">
+                    <h1 class="project-title"></h1>
+                    <button class="delete-project">X</button>
+                </div>
+                <div id="tasks"> 
+                     <div class="task">
+                        <label for="tast1"> Chest Workout</label>
+                        <input type="checkbox" id="task1" name="task1" >
+                        <button class="delete-task">X</button>
+                    </div>
+                    <div class="task">
+                        <label for="tast2"> Chest Workout</label>
+                        <input type="checkbox" id="task2" name="task2" >
+                        <button class="delete-task">X</button>
+                    </div>
+                    <div class="task">
+                        <label for="tast3"> Chest Workout</label>
+                        <input type="checkbox" id="task3" name="task3" >
+                        <button class="delete-task">X</button>
+                    </div>
+                </div>
+                <button class="add-task">Add Task</button> 
+            </div> -->
+        </div>
+        <div id="list-details">
+            <h2 id="project-title"></h2>
+            <div id="fill">
+                <div class="task-name">
+                    <label for="task-name">Task Name:</label>
+                    <input type="text" name="task-name" id="task-name">
+                </div>
+                
+                <div class="description">
+                    <div class="textarea-title">Notes:</div>
+                    <textarea id="note" name="notes" rows="10" cols="35" maxlength="100"></textarea>
+                </div>
+
+                <div class="extra">
+                    <div id="date">
+                        <label for="due-date">Due Date:</label>
+                        <input type="date" name="due-date" id="due-date">
+                    </div>
+                    <div id="priorities">
+                        <label for="priority">Priority:</label>
+                        <select name="priority" id="priority">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="buttons">
+                    
+                    <button id="delete-fill">Cancel</button>
+                </div>
+            </div>
+        </div>
+    <div id="new-list">
+        <label for="list-name">List Name</label>
+        <input id="list-name" type="text" maxlength="12">
+        <div class="buttons">
+            <button id="cancel">Cancel</button>
+            <button id="create-list">Create List</button>
+        </div> 
+    </div>
+</body>
+</html>
