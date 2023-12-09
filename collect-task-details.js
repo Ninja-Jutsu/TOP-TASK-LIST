@@ -45,7 +45,7 @@ export function createElementsWithGivenInputsThenAppend(obj){
     const appendToTasksBtn = document.getElementById('add-to-project')
     for( let i = 0; i < 9; i++){
         if (appendToTasksBtn.classList.contains(`add-to-list${i}`)){
-            const addNewTaskBtn = document.getElementById(`tasks${i}`)
+            const tasksList = document.getElementById(`tasks${i}`)
             const taskDiv = elementFactory('div',`task${i}`,'')
 
             const taskLabel = elementFactory('label',`taskLabel`,obj.title)
@@ -56,8 +56,9 @@ export function createElementsWithGivenInputsThenAppend(obj){
             taskDiv.appendChild(taskLabel)
             taskDiv.appendChild(checkbox)
             taskDiv.appendChild(taskBtn)
-            addNewTaskBtn.appendChild(taskDiv)
-
+            tasksList.appendChild(taskDiv)
+            tasksList.firstChild.setAttribute('id',`task${i}`)
+            add
             const allTasks =  document.getElementsByClassName(`task${i}`)
             console.log(allTasks.length)
             for (let y = 0; y< allTasks.length; y++){

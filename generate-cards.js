@@ -1,6 +1,7 @@
 import elementFactory from "./create-elements.js"
 import displayListMaker, { hideListMaker, displayProjectsContainer, hideProjectsContainer } from "./display-popups.js"
 import updateProjectName from "./update-project-name.js";
+
 let counter = 0;
 export default function generateDomForMainScreen(ProjectName){
     const box = elementFactory('div','box','')
@@ -36,6 +37,8 @@ export function toggleBtnClass(){
                 allTasks[i].style.display = 'none'
             }
             document.getElementById(`tasks${i}`).style.display =  'flex';
+
+            
         })
     }
 }

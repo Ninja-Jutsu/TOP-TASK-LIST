@@ -1,6 +1,7 @@
 import generateDomForMainScreen, {toggleBtnClass}from "./generate-cards.js"
 import displayListMaker, { hideListMaker, displayTaskDetailsForm, hideProjectsContainer, hideTaskDetailsForm } from "./display-popups.js"
 import collectTaskDetails, {createTasksDiv, createElementsWithGivenInputsThenAppend} from "./collect-task-details.js"
+import deleteSelectedTaskFromTasksList from "./delete-tasks.js"
 
 
 //+ Display newList generator:
@@ -36,8 +37,15 @@ addNewTaskBtn.addEventListener('click',createTasksDiv)
 
 const appendToTasksBtn = document.getElementById('add-to-project')
 appendToTasksBtn.addEventListener('click', () => {
-    createElementsWithGivenInputsThenAppend(collectTaskDetails())
+    createElementsWithGivenInputsThenAppend(collectTaskDetails());
+    const allTaskLists = document.getElementsByClassName('tasks');
+        for (let z = 0; z < allTaskLists.length; z++){
+            const dltTaskBtn = document.querySelector(`.delete-task${z}`)
+            dltTaskBtn.setAttribute('id',`delete-task${z}`)
+        }
     hideTaskDetailsForm()
+    deleteSelectedTaskFromTasksList()
+
 })
 
 
