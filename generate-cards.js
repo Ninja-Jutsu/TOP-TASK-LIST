@@ -21,7 +21,6 @@ export default function generateDomForMainScreen(ProjectName){
 
 export function toggleBtnClass(){
     let boxes = document.getElementsByClassName('box')
-    console.log(boxes.length)
     for (let i = 0; i < boxes.length; i++){
         boxes[i].addEventListener('click', ()=>{
             const addToList = document.getElementById('add-to-project')

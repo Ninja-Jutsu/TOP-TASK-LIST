@@ -41,21 +41,36 @@ export function createTasksDiv(){
 
 
 export function createElementsWithGivenInputsThenAppend(obj){
+    
     const appendToTasksBtn = document.getElementById('add-to-project')
     for( let i = 0; i < 9; i++){
         if (appendToTasksBtn.classList.contains(`add-to-list${i}`)){
             const addNewTaskBtn = document.getElementById(`tasks${i}`)
-            const taskDiv = elementFactory('div',`task`,'')
+            const taskDiv = elementFactory('div',`task${i}`,'')
+
             const taskLabel = elementFactory('label',`taskLabel`,obj.title)
             const checkbox = elementFactory('input', 'checkbox','')
-            checkbox.setAttribute('id',`task${i}`)
-            checkbox.setAttribute('name',`task${i}`)
+
             checkbox.setAttribute('type',`checkbox`)
             const taskBtn = elementFactory('button', `delete-task${i}`,'X')
-        
             taskDiv.appendChild(taskLabel)
             taskDiv.appendChild(checkbox)
             taskDiv.appendChild(taskBtn)
             addNewTaskBtn.appendChild(taskDiv)
-        }}
+
+            const allTasks =  document.getElementsByClassName(`task${i}`)
+            console.log(allTasks.length)
+            for (let y = 0; y< allTasks.length; y++){
+                if (allTasks[y].classList.contains(`task${y}`) != true){
+                    taskDiv.classList.add(`task${y}`)
+                    taskDiv.setAttribute('id', `task${y}`)
+                    checkbox.setAttribute('id',`task${y}`)
+                    taskBtn.setAttribute('id',`delete-task${y}`)
+                    checkbox.setAttribute('name',`task${y}`)
+                }
+            }
+        }
+
+        
+    }
 }
