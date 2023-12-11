@@ -23,7 +23,7 @@ export function createTasksDiv(){
     for (let i= 0; i< 9; i++){
         if (addNewTaskBtn.classList.contains(`add-task${i}`)){
             const tasks = elementFactory('div', `tasks`,'')
-            Alist.appendChild(tasks)  
+            Alist.insertBefore(tasks, Alist.children[1])
             if (allTasksDivs[i].classList.contains(`tasks${i}`) != true){
                 tasks.classList.add(`tasks${i}`)
                 tasks.setAttribute('id',`tasks${i}`)
@@ -38,10 +38,7 @@ export function createTasksDiv(){
     }
 }
 
-
-
 export function createElementsWithGivenInputsThenAppend(obj){
-    
     const appendToTasksBtn = document.getElementById('add-to-project')
     for( let i = 0; i < 9; i++){
         if (appendToTasksBtn.classList.contains(`add-to-list${i}`)){
@@ -57,8 +54,10 @@ export function createElementsWithGivenInputsThenAppend(obj){
             taskDiv.appendChild(checkbox)
             taskDiv.appendChild(taskBtn)
             tasksList.appendChild(taskDiv)
-            tasksList.firstChild.setAttribute('id',`task${i}`)
 
+            // tasksList.firstChild.setAttribute('id',`task${i}`)
+
+            //+ Add a unique ID to every delete btn + to every task
             const deleteTaskBtns = document.getElementsByClassName('delete-task')
             const Atask = document.getElementsByClassName('Atask')
             console.log(Atask.length)
