@@ -47,7 +47,7 @@ export function createElementsWithGivenInputsThenAppend(obj){
         if (appendToTasksBtn.classList.contains(`add-to-list${i}`)){
             const tasksList = document.getElementById(`tasks${i}`)
             const taskDiv = elementFactory('div',`task${i}`,'')
-
+            taskDiv.classList.add('Atask')
             const taskLabel = elementFactory('label',`taskLabel`,obj.title)
             const checkbox = elementFactory('input', 'checkbox','')
 
@@ -58,20 +58,15 @@ export function createElementsWithGivenInputsThenAppend(obj){
             taskDiv.appendChild(taskBtn)
             tasksList.appendChild(taskDiv)
             tasksList.firstChild.setAttribute('id',`task${i}`)
-            add
-            const allTasks =  document.getElementsByClassName(`task${i}`)
-            console.log(allTasks.length)
-            for (let y = 0; y< allTasks.length; y++){
-                if (allTasks[y].classList.contains(`task${y}`) != true){
-                    taskDiv.classList.add(`task${y}`)
-                    taskDiv.setAttribute('id', `task${y}`)
-                    checkbox.setAttribute('id',`task${y}`)
-                    taskBtn.setAttribute('id',`delete-task${y}`)
-                    checkbox.setAttribute('name',`task${y}`)
+
+            const Atask = document.getElementsByClassName('Atask')
+            console.log(Atask.length)
+            for ( let z = 0; z < Atask.length ; z++){
+                if (Atask[z].getAttribute('id') !== `task${z}`){
+                    Atask[z].setAttribute('id',`task${z}`)
                 }
             }
         }
-
-        
     }
 }
+
