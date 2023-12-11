@@ -52,18 +52,22 @@ export function createElementsWithGivenInputsThenAppend(obj){
             const checkbox = elementFactory('input', 'checkbox','')
 
             checkbox.setAttribute('type',`checkbox`)
-            const taskBtn = elementFactory('button', `delete-task${i}`,'X')
+            const taskBtn = elementFactory('button', `delete-task`,'X')
             taskDiv.appendChild(taskLabel)
             taskDiv.appendChild(checkbox)
             taskDiv.appendChild(taskBtn)
             tasksList.appendChild(taskDiv)
             tasksList.firstChild.setAttribute('id',`task${i}`)
 
+            const deleteTaskBtns = document.getElementsByClassName('delete-task')
             const Atask = document.getElementsByClassName('Atask')
             console.log(Atask.length)
             for ( let z = 0; z < Atask.length ; z++){
                 if (Atask[z].getAttribute('id') !== `task${z}`){
                     Atask[z].setAttribute('id',`task${z}`)
+                }
+                if (deleteTaskBtns[z].getAttribute('id') !== `delete-task${z}`){
+                    deleteTaskBtns[z].setAttribute('id',`delete-task${z}`)
                 }
             }
         }
