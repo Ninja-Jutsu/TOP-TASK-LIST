@@ -1,31 +1,32 @@
 import elementFactory from "./create-elements.js"
-import displayListMaker, { hideListMaker, displayProjectsContainer, hideProjectsContainer } from "./display-popups.js"
+import {displayProjectsContainer} from "./display-popups.js"
 import updateProjectName from "./update-project-name.js";
 
 let counter = 0;
-let anotherCounter = 0
 export default function generateDomForMainScreen(ProjectName){
     const boxContainer = elementFactory('div','box-container','')
-    // boxContainer.setAttribute('id', `box-container${counter}`)
     const box = elementFactory('div','box','')
-    // box.classList.add(`box${counter}`)
     const dltBtn = elementFactory('button',`dltBtn` ,'X')
     dltBtn.setAttribute('id',`dltBtn${counter}`)
     const para = elementFactory('p',`para`,ProjectName)
+
+    
+
 
     box.appendChild(para)
     boxContainer.appendChild(dltBtn)
     boxContainer.appendChild(box)
     
     box.addEventListener('click',() => {
+        shuffleIds()
+        toggleBtnClass()
         //+ DISPLAY LISTS:
-        console.log(`counter: ${anotherCounter}`)
         displayProjectsContainer()
-        generateTasksLists(anotherCounter)
-
+        //+ Generate All Task Lists:
+        generateTasksLists()
+        
+        
     })
-
-
     counter++
     return boxContainer
 }
@@ -49,6 +50,8 @@ export function toggleBtnClass(){
         })
     }
 }
+
+
 
 export function addIdToBoxContainersAndDltBtns(){
 
@@ -75,31 +78,48 @@ export function addIdToBoxContainersAndDltBtns(){
 }
 
 export function generateTasksLists(){
-    let counter = 0
-    console.log('TASKS GENERETAED 0')
     const projectsContainer = document.getElementById('project')
     const AllBoxes = document.getElementsByClassName('box')
     const allTasksDivs = document.getElementsByClassName('tasks')
-    console.log(allTasksDivs.length)
+    // const boxes = document.getElementsByClassName('box')
+    // const dltBtns = document.getElementsByClassName('dltBtn')
+    // const boxContainers = document.getElementsByClassName('box-container')
 
     for (let i = 0; i < AllBoxes.length; i++){
-        if (anotherCounter === 0 ){
+        //+ CREATE ALL TASKS DIVS:
+        if (!allTasksDivs.length){
             for (let i = 0; i < AllBoxes.length; i++){
                 const tasks = elementFactory('div', `tasks`,'')
                 tasks.classList.add(`tasks${i}`)
                 tasks.setAttribute('id',`tasks${i}`)    
-                projectsContainer.appendChild(tasks)   
-                console.log('TASKS GENERETAED 1')
+                projectsContainer.appendChild(tasks)
+                console.log('REGENERATION 1')
             }
-        anotherCounter++
         }
+        //+ CREATE TASKS DIVS THAT DON'T EXIST ALREADY:
         else if (AllBoxes[i].getAttribute('id') === `box${i}` && allTasksDivs.length < (i+1)){
             const tasks = elementFactory('div', `tasks`,'')
             tasks.classList.add(`tasks${i}`)
             tasks.setAttribute('id',`tasks${i}`)    
-            projectsContainer.appendChild(tasks)   
-            console.log('TASKS GENERETAED 2')      
+            projectsContainer.appendChild(tasks)  
+            console.log('REGENERATION 2')
         }
-        console.log('TASKS GENERETAED 3')
+
+        //+ REASSIGN THEIR IDs:
+
+    }
+}
+
+export function shuffleIds(){
+    const allTasksDivs = document.getElementsByClassName('tasks')
+    const boxes = document.getElementsByClassName('box')
+    const dltBtns = document.getElementsByClassName('dltBtn')
+    const boxContainers = document.getElementsByClassName('box-container')
+    for (let z = 0; z < allTasksDivs.length; z++){
+        allTasksDivs[z].setAttribute('id',`tasks${z}`) 
+        boxes[z].setAttribute('id',`box${z}`) 
+        dltBtns[z].setAttribute('id',`dltBtn${z}`)
+        boxContainers[z].setAttribute('id',`box-container${z}`)
+        console.log('RESHAFLE')
     }
 }
