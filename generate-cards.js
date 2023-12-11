@@ -3,6 +3,7 @@ import displayListMaker, { hideListMaker, displayProjectsContainer, hideProjects
 import updateProjectName from "./update-project-name.js";
 
 let counter = 0;
+let anotherCounter = 0
 export default function generateDomForMainScreen(ProjectName){
     const boxContainer = elementFactory('div','box-container','')
     // boxContainer.setAttribute('id', `box-container${counter}`)
@@ -16,13 +17,13 @@ export default function generateDomForMainScreen(ProjectName){
     boxContainer.appendChild(dltBtn)
     boxContainer.appendChild(box)
     
-
     box.addEventListener('click',() => {
         //+ DISPLAY LISTS:
+        console.log(`counter: ${anotherCounter}`)
         displayProjectsContainer()
+        generateTasksLists(anotherCounter)
+
     })
-
-
 
 
     counter++
@@ -71,4 +72,34 @@ export function addIdToBoxContainersAndDltBtns(){
                 allBoxes[z].setAttribute('id',`box${z}`)
             }
         }
+}
+
+export function generateTasksLists(){
+    let counter = 0
+    console.log('TASKS GENERETAED 0')
+    const projectsContainer = document.getElementById('project')
+    const AllBoxes = document.getElementsByClassName('box')
+    const allTasksDivs = document.getElementsByClassName('tasks')
+    console.log(allTasksDivs.length)
+
+    for (let i = 0; i < AllBoxes.length; i++){
+        if (anotherCounter === 0 ){
+            for (let i = 0; i < AllBoxes.length; i++){
+                const tasks = elementFactory('div', `tasks`,'')
+                tasks.classList.add(`tasks${i}`)
+                tasks.setAttribute('id',`tasks${i}`)    
+                projectsContainer.appendChild(tasks)   
+                console.log('TASKS GENERETAED 1')
+            }
+        anotherCounter++
+        }
+        else if (AllBoxes[i].getAttribute('id') === `box${i}` && allTasksDivs.length < (i+1)){
+            const tasks = elementFactory('div', `tasks`,'')
+            tasks.classList.add(`tasks${i}`)
+            tasks.setAttribute('id',`tasks${i}`)    
+            projectsContainer.appendChild(tasks)   
+            console.log('TASKS GENERETAED 2')      
+        }
+        console.log('TASKS GENERETAED 3')
+    }
 }

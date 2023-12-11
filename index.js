@@ -42,8 +42,8 @@ addTaskBtn.addEventListener("click", () => {
 })
 
 //+ CREATE INDIVIDUAL TASKS DIV:
-const addNewTaskBtn = document.getElementById('add-task')
-addNewTaskBtn.addEventListener('click',createTasksDiv)
+// const addNewTaskBtn = document.getElementById('add-task')
+// addNewTaskBtn.addEventListener('click',createTasksDiv)
 
 const appendToTasksBtn = document.getElementById('add-to-project')
 appendToTasksBtn.addEventListener('click', () => {
