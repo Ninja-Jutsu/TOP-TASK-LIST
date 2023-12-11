@@ -1,3 +1,3 @@
 export default function updateProjectName(index){
-    return document.querySelector(`.para${index}`).innerText
+    return document.getElementById(`para${index}`).innerText
 }

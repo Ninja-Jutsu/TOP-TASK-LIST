@@ -123,12 +123,13 @@ header button img{
     align-self: flex-end;
     border: none;
     background-color: lightcoral;
-    font-size: 1rem;
+    font-size: 3rem;
     font-weight: bold;
     padding: 2px 7px;
     border-radius: 8px;
     cursor: pointer;
     margin: 5px;
+    z-index: 3;
 }
 /* Projects */
 #lists-container {

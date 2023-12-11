@@ -1,7 +1,9 @@
-import generateDomForMainScreen, {toggleBtnClass}from "./generate-cards.js"
+import generateDomForMainScreen, {toggleBtnClass, addIdToBoxContainersAndDltBtns}from "./generate-cards.js"
 import displayListMaker, { hideListMaker, displayTaskDetailsForm, hideProjectsContainer, hideTaskDetailsForm } from "./display-popups.js"
 import collectTaskDetails, {createTasksDiv, createElementsWithGivenInputsThenAppend} from "./collect-task-details.js"
-import deleteSelectedTaskFromTasksList from "./delete-one-task.js"
+import deleteSelectedTaskFromTasksList, { deleteWholeProject } from "./delete-one-task.js"
+
+
 
 
 //+ Display newList generator:
@@ -17,9 +19,17 @@ createBoxBtn.addEventListener('click', () => {
     const listNameInput = document.getElementById('list-name')
 
     mainScreen.appendChild(generateDomForMainScreen(listNameInput.value))
+
+    addIdToBoxContainersAndDltBtns()
+
     toggleBtnClass()
+
     hideListMaker()
+
     listNameInput.value = ''
+
+    deleteWholeProject()
+
 })
 
 cancelCreateBoxBtn.addEventListener('click', hideListMaker)
@@ -40,9 +50,15 @@ appendToTasksBtn.addEventListener('click', () => {
     createElementsWithGivenInputsThenAppend(collectTaskDetails());
     hideTaskDetailsForm()
     deleteSelectedTaskFromTasksList()
+    
 })
 
+const hideListsBtn = document.getElementById('hide-tasks')
+hideListsBtn.addEventListener('click', hideProjectsContainer)
 
+//! let's see later.
+// const mainScreen =  document.getElementById('main-screen')
+// mainScreen.addEventListener('click', hideProjectsContainer)
 
 
 
