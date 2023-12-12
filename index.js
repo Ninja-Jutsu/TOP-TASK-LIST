@@ -30,8 +30,6 @@ createBoxBtn.addEventListener('click', () => {
 
     toggleBtnClass()
 
-    shuffleIds()
-
 })
 
 cancelCreateBoxBtn.addEventListener('click', hideListMaker)

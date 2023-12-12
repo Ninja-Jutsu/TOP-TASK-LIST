@@ -1,5 +1,6 @@
 import elementFactory from "./create-elements.js";
 import tasksFactory from "./project-class.js";
+let tasksObjects = [];
 export default function collectTaskDetails(){
     const taskName = document.getElementById('task-name')
     const description = document.getElementById('note')
@@ -24,7 +25,7 @@ export function createTasksDiv(){
         if (addNewTaskBtn.classList.contains(`add-task${i}`)){
             const tasks = elementFactory('div', `tasks`,'')
             Alist.appendChild(tasks)  
-            // Alist.insertBefore(tasks, Alist.children[1])
+
             if (allTasksDivs[i].classList.contains(`tasks${i}`) != true){
                 tasks.classList.add(`tasks${i}`)
                 tasks.setAttribute('id',`tasks${i}`)
@@ -46,13 +47,23 @@ export function createElementsWithGivenInputsThenAppend(obj){
             const tasksList = document.getElementById(`tasks${i}`)
             const taskDiv = elementFactory('div',`task${i}`,'')
             taskDiv.classList.add('Atask')
+            const prioritySpan = elementFactory('span','priority-span','')
+            prioritySpan.classList.add(`priority-span${i}`)
+            prioritySpan.innerText = changePriorityText(obj.priority, prioritySpan)
+            const dueDateSpan = elementFactory('span','duedate-span','')
+            dueDateSpan.classList.add(`duedate-span${i}`)
+            dueDateSpan.innerText = obj.date
             const taskLabel = elementFactory('label',`taskLabel`,obj.title)
             const checkbox = elementFactory('input', 'checkbox','')
-
+            checkbox.setAttribute('id',`checkbox${i}`)
             checkbox.setAttribute('type',`checkbox`)
             const taskBtn = elementFactory('button', `delete-task`,'X')
+            
+            taskDiv.appendChild(prioritySpan)
             taskDiv.appendChild(taskLabel)
             taskDiv.appendChild(checkbox)
+            taskDiv.appendChild(dueDateSpan)
+
             taskDiv.appendChild(taskBtn)
             tasksList.appendChild(taskDiv)
             tasksList.firstChild.setAttribute('id',`task${i}`)
@@ -71,5 +82,27 @@ export function createElementsWithGivenInputsThenAppend(obj){
             }
         }
     }
+    // collectTaskDetailsInObject(obj)
 }
 
+// export function collectTaskDetailsInObject(Obj){
+
+//     tasksObjects.push(Obj)
+//     console.log(tasksObjects)
+// }
+
+
+function changePriorityText(text, element){
+    if(text === 'high'){
+        element.style.backgroundColor = 'red'
+        return 'H'
+    }
+    else if(text === 'medium'){
+        element.style.backgroundColor = 'orange'
+        return 'M'
+    }
+    if(text === 'low'){
+        element.style.backgroundColor = 'green'
+        return 'L'
+    }
+}

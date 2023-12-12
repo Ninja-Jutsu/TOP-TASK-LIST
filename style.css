@@ -218,7 +218,6 @@ position: relative;
 }
 
 .tasks{
-
     grid-column: 1/7;
     grid-row: 2/6;
     display: flex;
@@ -230,7 +229,7 @@ position: relative;
 
 .Atask{
     display: grid;
-    grid-template-columns: 70% 15% 15%;
+    grid-template-columns: 0.3fr 3fr 0.5fr 1fr 0.5fr;
     height: 50px;
     color: darkblue;
     font-size: 1.5rem;
@@ -239,6 +238,16 @@ position: relative;
     align-items: center;
     justify-items: center;
     border-bottom: 1px solid #939692;
+}
+.Atask .duedate-span{
+    font-size: 1rem;
+}
+
+.Atask .priority-span {
+    font-size: 1rem;
+    padding: 3px;
+    border-radius: 8px;
+    align-self: flex-start;
 }
 
 .Atask .delete-task{
