@@ -4,14 +4,16 @@ import updateProjectName from "./update-project-name.js";
 
 let counter = 0;
 export default function generateDomForMainScreen(ProjectName){
+    //+ Create Project:
     const boxContainer = elementFactory('div','box-container','')
     const box = elementFactory('div','box','')
     const dltBtn = elementFactory('button',`dltBtn` ,'X')
     dltBtn.setAttribute('id',`dltBtn${counter}`)
     const para = elementFactory('p',`para`,ProjectName)
-
-    
-
+    //+ Create its tasks:
+    const tasks = elementFactory('div','tasks','')
+    const tasksContainer = document.getElementById('project')
+    tasksContainer.appendChild(tasks)
 
     box.appendChild(para)
     boxContainer.appendChild(dltBtn)
@@ -24,8 +26,6 @@ export default function generateDomForMainScreen(ProjectName){
         displayProjectsContainer()
         //+ Generate All Task Lists:
         generateTasksLists()
-        
-        
     })
     counter++
     return boxContainer
