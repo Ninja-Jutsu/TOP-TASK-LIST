@@ -16,23 +16,21 @@ export function deleteWholeProject(){
     for (let i = 0; i < deleteBoxAndTasksBtn.length; i++){
         const deleteTask = document.getElementById(`dltBtn${i}`)
         const oneContainer = document.getElementById(`box-container${i}`)
-
+        const oneTasksList = document.getElementById(`tasks${i}`)
         deleteTask.addEventListener('click', () => {
-            oneContainer.remove()
-            deleteWholeList()
+            oneContainer.style.display = 'none'
+            oneTasksList.style.display = 'none'
             hideProjectsContainer()
-            addIdToBoxContainersAndDltBtns()
-            toggleBtnClass()
         })
     }
 }
 
-export function deleteWholeList(){
-    const allBoxes = document.getElementsByClassName('box')
-    for (let i = 0; i < allBoxes.length; i++){
-        if(allBoxes[i].getAttribute('id') !== `box${i}`){
-            document.getElementById(`tasks${i}`).remove()
-        }
-    }
-}
+// export function deleteWholeList(){
+//     const allBoxes = document.getElementsByClassName('box')
+//     for (let i = 0; i < allBoxes.length; i++){
+//         if(allBoxes[i].getAttribute('id') !== `box${i}`){
+//             document.getElementById(`tasks${i}`).remove()
+//         }
+//     }
+// }
 
