@@ -28,3 +28,4 @@ export function hideTaskDetailsForm(){
     detailsForm.style.display = 'none'
 }
 
+

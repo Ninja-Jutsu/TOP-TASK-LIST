@@ -25,12 +25,11 @@ export function deleteWholeProject(){
     }
 }
 
-// export function deleteWholeList(){
-//     const allBoxes = document.getElementsByClassName('box')
-//     for (let i = 0; i < allBoxes.length; i++){
-//         if(allBoxes[i].getAttribute('id') !== `box${i}`){
-//             document.getElementById(`tasks${i}`).remove()
-//         }
-//     }
-// }
+export function emptyFillInputs(){
+    document.getElementById('task-name').value = ''
+    document.getElementById('note').value = ''
+    document.getElementById('priority').value = 'high'
+    document.getElementById('due-date').value = new Date()
+}
+
 
