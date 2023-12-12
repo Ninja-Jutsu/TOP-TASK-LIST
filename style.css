@@ -19,6 +19,11 @@ textarea {
     --mainBgColor: #d1d5db;
     --selectColor: #939692;
     --labels-size: 1.2rem;
+    --deleteBtnColor: #f08080;
+    --deleteBtnHoverColor:#ef9a9a;
+    --exitBtnColor: #71ed4b;
+    --exitBtnHoverCOlor: #8cf46c;
+
 }
 
 body {
@@ -32,7 +37,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     background-color: var(--mainBgColor);
-    flex-grow: 1;
+    flex-grow: 1;;
 }
 
 
@@ -92,70 +97,80 @@ header button img{
 
 
 #main-screen{
+position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 16vh;
     gap: 10px;
     margin: 10px;
 }
 
 #main-screen div p{
-    font-size: 1.5rem;
+    font-size: 2rem;
     background-color: transparent;
     border-style: none;
     text-align: center;
 }
 
 
-#main-screen .box{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-
+.box-container{
+    display: grid;
+    position: relative;
+    grid-template-rows: 30% 70%;
     background-color: transparent;
-    height: 100px;
+    height: 15vh;
     border: 1px solid black;
     border-radius: 16px;
     cursor: pointer;
+    padding-bottom: 2vh;
 }
 
-#main-screen .box button {
-    align-self: flex-end;
+.box-container button {
+    justify-self: end;
+    align-self: start;
     border: none;
-    background-color: lightcoral;
-    font-size: 3rem;
+    background-color: var(--deleteBtnColor);
+    font-size: 1.2rem;
     font-weight: bold;
     padding: 2px 7px;
     border-radius: 8px;
     cursor: pointer;
     margin: 5px;
-    z-index: 3;
 }
+.box-container button:hover {
+    scale: 0.95;
+    background-color:var(--exitBtnHoverCOlor) ;
+}
+
 /* Projects */
 #lists-container {
     display: none;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     gap: 10px;
-
+    
     width: 90vw;
+    height: max-content;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
+    background-color: var(--mainBgColor);
     padding: 5px;
     margin: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-.project{
-    display: none;
-    grid-template-rows: 1fr 2fr 0.5fr;
+#project{
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     padding: 10px;
     background-color: var(--popupBgColor);
     font-size: 2rem;
-    width: 100%;
+    width: 90%;
+    height: max-content;
 }
 
 .exit-project{
@@ -171,6 +186,10 @@ header button img{
 }
 
 .project-header {
+    display: flex;
+    justify-content: space-between;
+    grid-column: 1/7;
+    
     flex-grow: 1;
     border: 1px solid;
     padding: 10px;
@@ -178,12 +197,30 @@ header button img{
     margin-bottom: 10px;
 }
 
-.project .project-header{
-    display: flex;
-    justify-content: space-between;
+
+.project-header img{
+    border: none;
+    background-color: var(--exitBtnColor);
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 2px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    justify-self: center;
+    align-self: center;
 }
 
-.project .tasks{
+.project-header img:hover{
+    scale: 0.95;
+    background-color: var(--exitBtnHoverCOlor);
+}
+
+.tasks{
+
+    grid-column: 1/7;
+    grid-row: 2/6;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -191,35 +228,61 @@ header button img{
     gap: 10px;
 }
 
-.project .task{
-    display: flex;
-    gap: 20px;
+.Atask{
+    display: grid;
+    grid-template-columns: 70% 15% 15%;
+    height: 50px;
+    color: darkblue;
+    font-size: 1.5rem;
+    gap: 5px;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    border-bottom: 1px solid #939692;
+}
+
+.Atask .delete-task{
+    border: none;
+    background-color: lightcoral;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.Atask .tasklabel{
     align-items: center;
 }
 
-.task .delete-task{
-    border: none;
-    background-color: lightcoral;
-    font-size: 2rem;
-    font-weight: bold;
-    padding: 2px 7px;
-    border-radius: 8px;
-    cursor: pointer;
-}
+#add-task{
+    grid-column: 6/7;
+    grid-row: 6/7;
 
-.add-task{
-    width: 20%;
+    width: 70px;
+    height: 70px;
     justify-self: end;
     border: none;
     background-color: lightgreen;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     border-radius: 8px;
+    padding: 5px;
     cursor: pointer;
+    justify-self: center;
+    align-self: center;
 }
 .add-task:hover{
     scale: 0.98;
     background-color: rgb(163, 240, 163);
 }
+
+input[type=checkbox] {
+    margin: 4px 0 0;
+    line-height: normal;
+    width: 25px;
+    height: 25px;
+    }
 
 /* ADD NEW LIST */
 #add-new-list {
@@ -291,14 +354,15 @@ header button img{
 #list-details{
     display: none;
     flex-direction: column;
+    justify-content: space-around;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--popupBgColor);
     padding: 20px;
-    width: 95vw;
-    height: 47vh;
+    width: 100vw;
+    height: 100vh;
     border-radius: 16px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
