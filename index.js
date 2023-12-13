@@ -1,6 +1,6 @@
 import generateDomForMainScreen, {toggleBtnClass,shuffleIds, addIdToBoxContainersAndDltBtns}from "./generate-cards.js"
 import displayListMaker, { hideListMaker, displayTaskDetailsForm, hideProjectsContainer, hideTaskDetailsForm } from "./display-popups.js"
-import collectTaskDetails, {createTasksDiv, createElementsWithGivenInputsThenAppend} from "./collect-task-details.js"
+import collectTaskDetails, {changePriorityText, createElementsWithGivenInputsThenAppend} from "./collect-task-details.js"
 import deleteSelectedTaskFromTasksList, { deleteWholeProject, emptyFillInputs } from "./delete-one-task.js"
 import { updateTaskDetails, updateClickedTask } from "./update-project-name.js"
 
@@ -54,11 +54,6 @@ appendToTasksBtn.addEventListener('click', () => {
     deleteSelectedTaskFromTasksList()
     emptyFillInputs()
     updateTaskDetails()
-    const updates = document.getElementsByClassName('update')
-    for ( let i = 0 ; i < updates.length ; i++){
-        updates[i].addEventListener('click', )
-    }
-
 })
 
 const hideListsBtn = document.getElementById('hide-tasks')
@@ -73,3 +68,12 @@ document.getElementById('cancel-fill').addEventListener('click', ()=>{
     emptyFillInputs()
 })
 
+setInterval(function () { 
+    console.log('hr')
+    const prioritySpan = document.getElementsByClassName('priority-span')
+
+    for(let i = 0; i < prioritySpan.length; i++){
+        console.log('worked')
+        prioritySpan[i].innerText = changePriorityText(prioritySpan[i].innerText, prioritySpan[i])
+    }  
+}, 200);

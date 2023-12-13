@@ -1,3 +1,4 @@
+import { changePriorityText } from "./collect-task-details.js"
 export default function updateProjectName(index){
     return document.getElementById(`para${index}`).innerText
 }
@@ -5,10 +6,7 @@ export default function updateProjectName(index){
 export function updateTaskDetails(){
     const updateTaskBtn = document.getElementById('update-task')
     const allTaskUpdateBtn = document.getElementsByClassName('update')
-    const allTasks = document.getElementsByClassName('Atask')
-    let priorityValue = document.getElementById('priority').value
-    let dateValue = document.getElementById('due-date').value
-    let taskNameValue = document.getElementById('task-name').value
+
     console.log(0)
     for(let z = 0; z < allTaskUpdateBtn.length; z++){
     console.log(1)
@@ -21,11 +19,13 @@ export function updateTaskDetails(){
 
         updateTaskBtn.addEventListener('click', () => {
             updateClickedTask(z)
+
         })
     }
 }
 
 export function updateClickedTask(i){
+
     const updateTaskBtn = document.getElementById('update-task')
     let priorityValue = document.getElementById('priority').value
     let dateValue = document.getElementById('due-date').value
@@ -42,6 +42,5 @@ export function updateClickedTask(i){
             dateValue = ''
             taskNameValue = ''
             console.log(taskNameValue)
-
     } 
 }

@@ -112,7 +112,7 @@ export function createElementsWithGivenInputsThenAppend(obj){
 // }
 
 
-function changePriorityText(text, element){
+export function changePriorityText(text, element){
     if(text === 'high'){
         element.style.backgroundColor = 'red'
         return 'H'
@@ -121,8 +121,11 @@ function changePriorityText(text, element){
         element.style.backgroundColor = 'orange'
         return 'M'
     }
-    if(text === 'low'){
+    else if(text === 'low'){
         element.style.backgroundColor = 'green'
         return 'L'
+    }
+    else {
+        return text
     }
 }
