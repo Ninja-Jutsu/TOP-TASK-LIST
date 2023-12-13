@@ -1,5 +1,6 @@
 import elementFactory from "./create-elements.js";
 import tasksFactory from "./project-class.js";
+
 let tasksObjects = [];
 export default function collectTaskDetails(){
     const taskName = document.getElementById('task-name')
@@ -48,41 +49,60 @@ export function createElementsWithGivenInputsThenAppend(obj){
             const taskDiv = elementFactory('div',`task${i}`,'')
             taskDiv.classList.add('Atask')
             const prioritySpan = elementFactory('span','priority-span','')
-            prioritySpan.classList.add(`priority-span${i}`)
+
             prioritySpan.innerText = changePriorityText(obj.priority, prioritySpan)
             const dueDateSpan = elementFactory('span','duedate-span','')
-            dueDateSpan.classList.add(`duedate-span${i}`)
+
             dueDateSpan.innerText = obj.date
             const taskLabel = elementFactory('label',`taskLabel`,obj.title)
             const checkbox = elementFactory('input', 'checkbox','')
-            checkbox.setAttribute('id',`checkbox${i}`)
             checkbox.setAttribute('type',`checkbox`)
             const taskBtn = elementFactory('button', `delete-task`,'X')
-            
+            const updateTaskDisplayer = elementFactory('button','update','#')
             taskDiv.appendChild(prioritySpan)
             taskDiv.appendChild(taskLabel)
-            taskDiv.appendChild(checkbox)
             taskDiv.appendChild(dueDateSpan)
-
+            taskDiv.appendChild(checkbox)
             taskDiv.appendChild(taskBtn)
+            taskDiv.appendChild(updateTaskDisplayer)
+
             tasksList.appendChild(taskDiv)
             tasksList.firstChild.setAttribute('id',`task${i}`)
 
             //+ Add a unique ID to every delete btn + to every task
             const deleteTaskBtns = document.getElementsByClassName('delete-task')
             const Atask = document.getElementsByClassName('Atask')
-
+            const allUpdate = document.getElementsByClassName('update')
+            const allCheckbox = document.getElementsByClassName('checkbox')
+            const allDueDates = document.getElementsByClassName('duedate-span')
+            const allPrioritySpans = document.getElementsByClassName('priority-span')
+            const allTaskLabels = document.getElementsByClassName('taskLabel')
             for ( let z = 0; z < Atask.length ; z++){
                 if (Atask[z].getAttribute('id') !== `task${z}`){
                     Atask[z].setAttribute('id',`task${z}`)
                 }
+                if (allPrioritySpans[z].getAttribute('id') !== `priority${z}`){
+                    allPrioritySpans[z].setAttribute('id',`priority${z}`)
+                }
+                if (allDueDates[z].getAttribute('id') !== `due-date${z}`){
+                    allDueDates[z].setAttribute('id',`due-date${z}`)
+                }
                 if (deleteTaskBtns[z].getAttribute('id') !== `delete-task${z}`){
                     deleteTaskBtns[z].setAttribute('id',`delete-task${z}`)
+                }
+                if (allUpdate[z].getAttribute('id') !== `update${z}`){
+                    allUpdate[z].setAttribute('id',`update${z}`)
+                }
+                if (allCheckbox[z].getAttribute('id') !== `checkbox${z}`){
+                    allCheckbox[z].setAttribute('id',`checkbox${z}`)
+                }
+                if (allTaskLabels[z].getAttribute('id') !== `task-label${z}`){
+                    allTaskLabels[z].setAttribute('id',`task-label${z}`)
                 }
             }
         }
     }
-    // collectTaskDetailsInObject(obj)
+    // updateTaskDetails()
 }
 
 // export function collectTaskDetailsInObject(Obj){

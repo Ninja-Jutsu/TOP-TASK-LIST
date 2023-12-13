@@ -2,6 +2,8 @@ import generateDomForMainScreen, {toggleBtnClass,shuffleIds, addIdToBoxContainer
 import displayListMaker, { hideListMaker, displayTaskDetailsForm, hideProjectsContainer, hideTaskDetailsForm } from "./display-popups.js"
 import collectTaskDetails, {createTasksDiv, createElementsWithGivenInputsThenAppend} from "./collect-task-details.js"
 import deleteSelectedTaskFromTasksList, { deleteWholeProject, emptyFillInputs } from "./delete-one-task.js"
+import { updateTaskDetails, updateClickedTask } from "./update-project-name.js"
+
 
 
 
@@ -51,6 +53,12 @@ appendToTasksBtn.addEventListener('click', () => {
     hideTaskDetailsForm()
     deleteSelectedTaskFromTasksList()
     emptyFillInputs()
+    updateTaskDetails()
+    const updates = document.getElementsByClassName('update')
+    for ( let i = 0 ; i < updates.length ; i++){
+        updates[i].addEventListener('click', )
+    }
+
 })
 
 const hideListsBtn = document.getElementById('hide-tasks')

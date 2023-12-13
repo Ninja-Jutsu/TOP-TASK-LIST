@@ -345,6 +345,10 @@ input[type=checkbox] {
     cursor: pointer;
 }
 
+#update-task{
+    display: none;
+}
+
 #cancel{
     background-color: lightcoral;
 }
@@ -408,15 +412,20 @@ input[type=checkbox] {
 }
 
 #fill .description{
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
     grid-column: 1/2;
     grid-row: 2/3;
 }
 
 #fill #note{
-    font-size: 1rem;
+    font-size: 1.3rem;
     border-style: none;
     border-radius: 8px;
     resize: none;
+    padding: 5px;
 }
 
 #fill .extra{
@@ -441,9 +450,27 @@ input[type=checkbox] {
     font-size: var(--labels-size);
 }
 #date #due-date{
-    padding: 5px;
+    color: darkblue;
+    font-size: 1rem;
+    font-weight: bold;
     background-color: var(--selectColor);
 }
+#date #due-date::-webkit-datetime-edit {
+    padding: 10px; }
+    /* ::-webkit-datetime-edit { padding: 10px; } */
+/* ::-webkit-datetime-edit-fields-wrapper { background: silver; }
+::-webkit-datetime-edit-text { color: red; padding: 0 0.3em; }
+::-webkit-datetime-edit-month-field { color: blue; }
+::-webkit-datetime-edit-day-field { color: green; }
+::-webkit-datetime-edit-year-field { color: purple; }
+::-webkit-inner-spin-button { display: none; } */
+#date #due-date::-webkit-calendar-picker-indicator { 
+    background-color: lightcyan;
+    opacity: 0.5;
+    color: black;
+    margin-right: 5px;
+ }
+
 
 
 #fill #priorities{
@@ -461,9 +488,18 @@ input[type=checkbox] {
 }
 
 #priority {
-    padding: 5px;
-    font-size: 1.2rem;
+    color: darkblue;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 1rem;
     background-color: var(--selectColor);
+}
+#priority option{
+    font-weight: bolder;
+    padding-bottom: 3px;
+    font-size: 1.1rem;
+    text-align: start;
 }
 
 #buttons {
