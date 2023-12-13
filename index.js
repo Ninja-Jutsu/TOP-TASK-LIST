@@ -8,7 +8,6 @@ import changeMode from "./dark-mode.js"
 
 window.addEventListener('load', () => {
     console.log(JSON.parse(localStorage.getItem('container')));
-    document.getElementById('container').innerHTML = ''
     document.getElementById('container').innerHTML =  JSON.parse(localStorage.getItem('container'))
 })
 
