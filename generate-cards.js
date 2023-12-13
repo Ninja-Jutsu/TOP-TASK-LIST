@@ -51,39 +51,34 @@ export function toggleBtnClass(){
     }
 }
 
-
-
 export function addIdToBoxContainersAndDltBtns(){
 
-        //+ add a unique id to every dltBtn + every boxContainer
-        const deleteContainerBtn = document.getElementsByClassName('dltBtn')
-        const allContainers = document.getElementsByClassName('box-container')
-        const allBoxes = document.getElementsByClassName('box')
-        const allParagraphs = document.getElementsByClassName('para')
+    //+ add a unique id to every dltBtn + every boxContainer
+    const deleteContainerBtn = document.getElementsByClassName('dltBtn')
+    const allContainers = document.getElementsByClassName('box-container')
+    const allBoxes = document.getElementsByClassName('box')
+    const allParagraphs = document.getElementsByClassName('para')
 
-        for ( let z = 0; z < allContainers.length ; z++){
-            if (allContainers[z].getAttribute('id') !== `box-container${z}`){
-                allContainers[z].setAttribute('id',`box-container${z}`)
-            }
-            if (deleteContainerBtn[z].getAttribute('id') !== `dltBtn${z}`){
-                deleteContainerBtn[z].setAttribute('id',`dltBtn${z}`)
-            }
-            if (allParagraphs[z].getAttribute('id') !== `para${z}`){
-                allParagraphs[z].setAttribute('id',`para${z}`)
-            }
-            if (allBoxes[z].getAttribute('id') !== `box${z}`){
-                allBoxes[z].setAttribute('id',`box${z}`)
-            }
+    for ( let z = 0; z < allContainers.length ; z++){
+        if (allContainers[z].getAttribute('id') !== `box-container${z}`){
+            allContainers[z].setAttribute('id',`box-container${z}`)
         }
+        if (deleteContainerBtn[z].getAttribute('id') !== `dltBtn${z}`){
+            deleteContainerBtn[z].setAttribute('id',`dltBtn${z}`)
+        }
+        if (allParagraphs[z].getAttribute('id') !== `para${z}`){
+            allParagraphs[z].setAttribute('id',`para${z}`)
+        }
+        if (allBoxes[z].getAttribute('id') !== `box${z}`){
+            allBoxes[z].setAttribute('id',`box${z}`)
+        }
+    }
 }
 
 export function generateTasksLists(){
     const projectsContainer = document.getElementById('project')
     const AllBoxes = document.getElementsByClassName('box')
     const allTasksDivs = document.getElementsByClassName('tasks')
-    // const boxes = document.getElementsByClassName('box')
-    // const dltBtns = document.getElementsByClassName('dltBtn')
-    // const boxContainers = document.getElementsByClassName('box-container')
 
     for (let i = 0; i < AllBoxes.length; i++){
         //+ CREATE ALL TASKS DIVS:

@@ -6,15 +6,25 @@ export default function updateProjectName(index){
 export function updateTaskDetails(){
     const updateTaskBtn = document.getElementById('update-task')
     const allTaskUpdateBtn = document.getElementsByClassName('update')
-
+    const allDueDates = document.getElementsByClassName('duedate-span')
+    const allPrioritySpans = document.getElementsByClassName('priority-span')
+    const allTaskLabels = document.getElementsByClassName('taskLabel')
+    const allNoteKeeper = document.getElementsByClassName('note-keeper')
+    
     console.log(0)
     for(let z = 0; z < allTaskUpdateBtn.length; z++){
     console.log(1)
 
         allTaskUpdateBtn[z].addEventListener('click', () => {
             updateTaskBtn.setAttribute('class', `update-task${z}`)
+            document.getElementById('task-name').value = allTaskLabels[z].innerText
+            document.getElementById('note').value = allNoteKeeper[z].innerText
+            document.getElementById('due-date').value = allDueDates[z].innerText
+            document.getElementById('priority').value = allPrioritySpans[z].getAttribute('alt')
+
             updateTaskBtn.style.display = 'block'
             document.getElementById('list-details').style.display = 'flex'
+            document.getElementById('add-to-project').style.display = 'none'
         })
 
         updateTaskBtn.addEventListener('click', () => {
@@ -30,19 +40,24 @@ export function updateClickedTask(i){
     let priorityValue = document.getElementById('priority').value
     let dateValue = document.getElementById('due-date').value
     let taskNameValue = document.getElementById('task-name').value
-        console.log(priorityValue)
+    let noteValue = document.getElementById('note').value
         if(updateTaskBtn.classList.contains(`update-task${i}`)){
-            console.log(dateValue)
             document.getElementById(`priority${i}`).innerText = priorityValue
             document.getElementById(`due-date${i}`).innerHTML = dateValue
             document.getElementById(`task-label${i}`).innerHTML = taskNameValue
+            document.getElementById(`note${i}`).innerHTML = noteValue
             document.getElementById(`list-details`).style.display = 'none'
-
+            updateTaskBtn.style.display = 'none'
+            document.getElementById('add-to-project').style.display = 'block'
             priorityValue = ''
             dateValue = ''
             taskNameValue = ''
-            console.log(taskNameValue)
-    } 
+    }
+    console.log('empty 2')
+    priorityValue = ''
+    taskNameValue = ''
+    dateValue = ''
+    noteValue = ''
 }
 
 function updatePrioritySymbol(){
@@ -53,3 +68,7 @@ function updatePrioritySymbol(){
         prioritySpan[i].innerText = changePriorityText(prioritySpan[i].innerText, prioritySpan[i])
     }  
 }
+
+// export function checkIfDone(){
+//     const allCheckBoxs = 
+// }

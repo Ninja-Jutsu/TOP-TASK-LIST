@@ -10,9 +10,11 @@
 
     <div id="container">
         <header>
-            <img src="/img/todologo.svg" alt="Logo">
+            <img src="./img/logo-light.svg" alt="Logo-dark" id="light-logo">
+            <img src="./img/logo-dark.svg" alt="Logo-light" id="dark-logo">
             <h2>LET'S DO IT</h2>
-            <button class="menu"><img src="./img/menu.svg" alt="menu"></button>
+            <button id="light"><img src="./img/sun.svg" alt="light mode"></button>
+            <button id="dark"><img src="./img/moon.svg" alt="dark mode"></button>
         </header>
         
 
@@ -40,7 +42,7 @@
 
         <div id="new-list">
             <label for="list-name">List Name:</label>
-            <input id="list-name" type="text" maxlength="12">
+            <input id="list-name" type="text" maxlength="12" placeholder="Max 12 characters">
             <div class="buttons">
                 <button id="cancel-box-creation">Cancel</button>
                 <button id="create-list">Create List</button>
@@ -52,12 +54,12 @@
             <div id="fill">
                 <div class="task-name">
                     <label for="task-name">Task Name:</label>
-                    <input type="text" name="task-name" id="task-name" maxlength="16">
+                    <input type="text" name="task-name" id="task-name" maxlength="16" placeholder="max characters 16">
                 </div>
                 
                 <div class="description">
                     <div class="textarea-title">Notes:</div>
-                    <textarea id="note" name="notes" rows="10" cols="35" maxlength="100"></textarea>
+                    <textarea id="note" name="notes" rows="10" cols="35" maxlength="200" placeholder="Max 100 characters"></textarea>
                 </div>
 
                 <div class="extra">
@@ -82,7 +84,7 @@
             </div>
         </div>
         <div id="delete-verification">
-            <h1>All saved tasks will be lost, continue?</h1>
+            <h1>All saved tasks in this project will be lost, continue?</h1>
             <div id="yes-no">
                 <button id="yes">YES</button>
                 <button id="no">NO</button>

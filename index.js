@@ -3,7 +3,7 @@ import displayListMaker, { hideListMaker, displayTaskDetailsForm, hideProjectsCo
 import collectTaskDetails, {changePriorityText, createElementsWithGivenInputsThenAppend} from "./collect-task-details.js"
 import deleteSelectedTaskFromTasksList, { deleteWholeProject, emptyFillInputs } from "./delete-one-task.js"
 import { updateTaskDetails, updateClickedTask } from "./update-project-name.js"
-
+import changeMode from "./dark-mode.js"
 
 
 
@@ -40,6 +40,14 @@ cancelCreateBoxBtn.addEventListener('click', hideListMaker)
 //+ Display Task Details form:
 const addTaskBtn = document.getElementById('add-task')
 addTaskBtn.addEventListener("click", () => {
+    let priority = document.getElementById('priority')
+    let date = document.getElementById('due-date')
+    let taskName = document.getElementById('task-name')
+    let note = document.getElementById('note')
+    priority.value = 'low'
+    date.value = ''
+    taskName.value = ''
+    note.value = ''
     displayTaskDetailsForm()
 })
 
@@ -67,3 +75,5 @@ document.getElementById('cancel-fill').addEventListener('click', ()=>{
     hideTaskDetailsForm()
     emptyFillInputs()
 })
+
+changeMode()

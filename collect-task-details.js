@@ -49,19 +49,20 @@ export function createElementsWithGivenInputsThenAppend(obj){
             const taskDiv = elementFactory('div',`task${i}`,'')
             taskDiv.classList.add('Atask')
             const prioritySpan = elementFactory('span','priority-span','')
-
             prioritySpan.innerText = changePriorityText(obj.priority, prioritySpan)
             const dueDateSpan = elementFactory('span','duedate-span','')
-
             dueDateSpan.innerText = obj.date
             const taskLabel = elementFactory('label',`taskLabel`,obj.title)
             const checkbox = elementFactory('input', 'checkbox','')
             checkbox.setAttribute('type',`checkbox`)
             const taskBtn = elementFactory('button', `delete-task`,'X')
             const updateTaskDisplayer = elementFactory('img','update','')
+            const noteKeeper = elementFactory('div', 'note-keeper', '')
+            noteKeeper.innerText = obj.notes
             updateTaskDisplayer.setAttribute('src','/img/update.svg')
             updateTaskDisplayer.setAttribute('alt','update')
             taskDiv.appendChild(prioritySpan)
+            taskDiv.appendChild(noteKeeper)
             taskDiv.appendChild(taskLabel)
             taskDiv.appendChild(dueDateSpan)
             taskDiv.appendChild(checkbox)
@@ -79,12 +80,16 @@ export function createElementsWithGivenInputsThenAppend(obj){
             const allDueDates = document.getElementsByClassName('duedate-span')
             const allPrioritySpans = document.getElementsByClassName('priority-span')
             const allTaskLabels = document.getElementsByClassName('taskLabel')
+            const allNoteKepper = document.getElementsByClassName('note-keeper')
             for ( let z = 0; z < Atask.length ; z++){
                 if (Atask[z].getAttribute('id') !== `task${z}`){
                     Atask[z].setAttribute('id',`task${z}`)
                 }
                 if (allPrioritySpans[z].getAttribute('id') !== `priority${z}`){
                     allPrioritySpans[z].setAttribute('id',`priority${z}`)
+                }
+                if (allNoteKepper[z].getAttribute('id') !== `note${z}`){
+                    allNoteKepper[z].setAttribute('id',`note${z}`)
                 }
                 if (allDueDates[z].getAttribute('id') !== `due-date${z}`){
                     allDueDates[z].setAttribute('id',`due-date${z}`)
@@ -104,27 +109,22 @@ export function createElementsWithGivenInputsThenAppend(obj){
             }
         }
     }
-    // updateTaskDetails()
 }
-
-// export function collectTaskDetailsInObject(Obj){
-
-//     tasksObjects.push(Obj)
-//     console.log(tasksObjects)
-// }
-
 
 export function changePriorityText(text, element){
     if(text === 'high'){
         element.style.backgroundColor = 'red'
+        element.setAttribute('alt','high')
         return 'H'
     }
     else if(text === 'medium'){
         element.style.backgroundColor = 'orange'
+        element.setAttribute('alt','medium')
         return 'M'
     }
     else if(text === 'low'){
         element.style.backgroundColor = 'green'
+        element.setAttribute('alt','low')
         return 'L'
     }
     else {
