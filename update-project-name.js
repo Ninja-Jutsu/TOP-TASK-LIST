@@ -19,7 +19,7 @@ export function updateTaskDetails(){
 
         updateTaskBtn.addEventListener('click', () => {
             updateClickedTask(z)
-
+            updatePrioritySymbol()
         })
     }
 }
@@ -43,4 +43,13 @@ export function updateClickedTask(i){
             taskNameValue = ''
             console.log(taskNameValue)
     } 
+}
+
+function updatePrioritySymbol(){
+    const prioritySpan = document.getElementsByClassName('priority-span')
+
+    for(let i = 0; i < prioritySpan.length; i++){
+        console.log('worked')
+        prioritySpan[i].innerText = changePriorityText(prioritySpan[i].innerText, prioritySpan[i])
+    }  
 }

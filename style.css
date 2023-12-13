@@ -23,17 +23,19 @@ textarea {
     --deleteBtnHoverColor:#ef9a9a;
     --exitBtnColor: #71ed4b;
     --exitBtnHoverCOlor: #8cf46c;
-
+    --updateBtnColor: rgb(251, 228, 97);
+    --updateBtnColorHover: rgb(241, 227, 152);
 }
 
 body {
     position: relative;
+    height: max-content;
 }
 #container {
     position: relative;
     display: grid;
     grid-template-rows: 100px 1fr 100px;
-    min-height: 98.4vh;
+    min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     background-color: var(--mainBgColor);
@@ -83,10 +85,10 @@ header button{
     cursor: pointer;
 }
 
-header button:hover {
+/* header button:hover {
     scale: 0.97;
     opacity: 0.6;
-}
+} */
 
 header button img{
     align-self: center;
@@ -139,7 +141,7 @@ position: relative;
 }
 .box-container button:hover {
     scale: 0.95;
-    background-color:var(--exitBtnHoverCOlor) ;
+    background-color:var(--deleteBtnHoverColor) ;
 }
 
 /* Projects */
@@ -150,15 +152,15 @@ position: relative;
     justify-content: space-around;
     gap: 10px;
     
-    width: 90vw;
     height: max-content;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--mainBgColor);
+    width: 100vw;
+    height: 100vh;
     padding: 5px;
-    margin: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -169,8 +171,6 @@ position: relative;
     padding: 10px;
     background-color: var(--popupBgColor);
     font-size: 2rem;
-    width: 90%;
-    height: max-content;
 }
 
 .exit-project{
@@ -229,8 +229,8 @@ position: relative;
 
 .Atask{
     display: grid;
-    grid-template-columns: 0.3fr 3fr 0.5fr 1fr 0.5fr;
-    height: 50px;
+    grid-template-columns: repeat(12, 1fr);
+    height: max-content;
     color: darkblue;
     font-size: 1.5rem;
     gap: 5px;
@@ -240,35 +240,46 @@ position: relative;
     border-bottom: 1px solid #939692;
 }
 .Atask .duedate-span{
-    font-size: 1rem;
+    grid-column: 6/10;
+    font-size: 1.3rem;
 }
 
 .Atask .priority-span {
+    grid-row: 1/2;
     font-size: 1rem;
     padding: 3px;
     border-radius: 8px;
     align-self: flex-start;
+    margin-right: 10px;
 }
 
 .Atask .delete-task{
+    grid-column: 12/13;
     border: none;
     background-color: lightcoral;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: bold;
-    padding: 6px 10px;
+    padding: 2px 5px;
     border-radius: 8px;
     cursor: pointer;
-    margin-left: 10px;
+    justify-self: center;
+    width: 90%;
+    height: 90%;
 }
 
-.Atask .tasklabel{
-    align-items: center;
+.delete-task:hover{
+    background-color: var(--deleteBtnHoverColor);
+    scale: 0.9;
+}
+
+.taskLabel{
+    grid-column: 2/6;
+    justify-self: center;
 }
 
 #add-task{
     grid-column: 6/7;
     grid-row: 6/7;
-
     width: 70px;
     height: 70px;
     justify-self: end;
@@ -281,16 +292,35 @@ position: relative;
     justify-self: center;
     align-self: center;
 }
+
+#add-task:hover{
+    background-color: var(--exitBtnHoverCOlor);
+    scale: 0.98;
+}
+.update{
+    grid-column: 11/12;
+    grid-row: 1/2;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--updateBtnColor);
+    cursor: pointer;
+    width: 90%;
+    height: 90%;
+}
+
+.update:hover{
+    background-color: var(--updateBtnColorHover);
+    scale:0.9;
+}
 .add-task:hover{
     scale: 0.98;
     background-color: rgb(163, 240, 163);
 }
 
 input[type=checkbox] {
-    margin: 4px 0 0;
-    line-height: normal;
-    width: 25px;
-    height: 25px;
+    grid-column: 10/11;
+    width: 90%;
+    height: 90%;
     }
 
 /* ADD NEW LIST */
@@ -525,6 +555,7 @@ input[type=checkbox] {
     border-color: gold;
 }
 
+
 #buttons .delete-fill{
     margin-right: 20px;
     background-color: lightcoral;
@@ -534,4 +565,53 @@ input[type=checkbox] {
 #buttons .add-to-project{
     margin-left: 20px;
     background-color: lightgreen;
+}
+
+/* VERIFICATION */
+#delete-verification {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    background-color: var(--popupBgColor);
+}
+
+#delete-verification h1{
+    text-align: center;
+}
+
+#delete-verification button{
+    padding: 10px;
+    font-size: 3rem;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#delete-verification #yes-no{
+    display: flex;
+    gap: 20px;
+}
+
+#yes{
+    background-color: #71ed4b;
+}
+#yes:hover{
+    scale: 0.95;
+    background-color: var(--exitBtnHoverCOlor);
+}
+
+#no {
+    background-color: var(--deleteBtnColor);
+}
+#no:hover {
+    scale: 0.95;
+    background-color: var(--deleteBtnHoverColor);
 }

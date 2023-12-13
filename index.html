@@ -63,7 +63,7 @@
                 <div class="extra">
                     <div id="date">
                         <label for="due-date">Due Date:</label>
-                        <input type="date" name="due-date" id="due-date" timezone="[[timezone]]" data-date="" data-date-format="DD MMMM YYYY" value="2023-12-09">
+                        <input type="date" name="due-date" id="due-date" timezone="[[timezone]]" data-date="" data-date-format="DD MMMM YYYY" value="2023-12-09" required>
                     </div>
                     <div id="priorities">
                         <label for="priority">Priority:</label>
@@ -81,6 +81,13 @@
                 </div>
             </div>
         </div>
-
+        <div id="delete-verification">
+            <h1>All saved tasks will be lost, continue?</h1>
+            <div id="yes-no">
+                <button id="yes">YES</button>
+                <button id="no">NO</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

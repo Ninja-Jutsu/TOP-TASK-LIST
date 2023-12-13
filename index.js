@@ -67,13 +67,3 @@ document.getElementById('cancel-fill').addEventListener('click', ()=>{
     hideTaskDetailsForm()
     emptyFillInputs()
 })
-
-setInterval(function () { 
-    console.log('hr')
-    const prioritySpan = document.getElementsByClassName('priority-span')
-
-    for(let i = 0; i < prioritySpan.length; i++){
-        console.log('worked')
-        prioritySpan[i].innerText = changePriorityText(prioritySpan[i].innerText, prioritySpan[i])
-    }  
-}, 200);
