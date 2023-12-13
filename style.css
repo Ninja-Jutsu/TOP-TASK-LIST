@@ -105,7 +105,7 @@ header button img{
     display: none;
 }
 
-#light-logo {
+#dark-logo {
     display: none;
 }
 
@@ -324,6 +324,13 @@ position: relative;
     width: 90%;
     height: 90%;
 }
+
+.update::before{
+    display: none;
+    content: 'Update'
+}
+
+
 
 .update:hover{
     background-color: var(--updateBtnColorHover);

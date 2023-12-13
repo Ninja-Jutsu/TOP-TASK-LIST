@@ -77,3 +77,9 @@ document.getElementById('cancel-fill').addEventListener('click', ()=>{
 })
 
 changeMode()
+
+
+document.getElementById('cancel-fill').addEventListener('click',() => {
+    document.getElementById('add-to-project').style.display = 'block'
+    document.getElementById('update-task').style.display = 'none'
+})
