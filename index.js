@@ -5,16 +5,12 @@ import deleteSelectedTaskFromTasksList, { deleteWholeProject, emptyFillInputs } 
 import { updateTaskDetails, updateClickedTask } from "./update-project-name.js"
 import changeMode from "./dark-mode.js"
 
-
-window.addEventListener('load', () => {
-    console.log(JSON.parse(localStorage.getItem('container')));
-    document.getElementById('container').innerHTML =  JSON.parse(localStorage.getItem('container'))
-})
-
-
 //+ Display newList generator:
 const addBtn = document.getElementById('add-new-list')
-addBtn.addEventListener('click',displayListMaker)
+addBtn.addEventListener('click', () => {
+    displayListMaker()
+})
+
 
 //+ Generate newList:
 const createBoxBtn = document.getElementById('create-list')
@@ -87,27 +83,3 @@ document.getElementById('cancel-fill').addEventListener('click',() => {
     document.getElementById('add-to-project').style.display = 'block'
     document.getElementById('update-task').style.display = 'none'
 })
-
-
-
-
-document.getElementById('add').addEventListener('click', () => {
-    localStorage.setItem('container', JSON.stringify(document.getElementById('container').innerHTML))
-})
-document.getElementById('create-list').addEventListener('click', () => {
-    localStorage.setItem('container', JSON.stringify(document.getElementById('container').innerHTML))
-})
-document.getElementById('add-task').addEventListener('click', () => {
-    localStorage.setItem('container', JSON.stringify(document.getElementById('container').innerHTML))
-})
-document.getElementById('add-to-project').addEventListener('click', () => {
-    localStorage.setItem('container', JSON.stringify(document.getElementById('container').innerHTML))
-})
-document.getElementById('cancel-fill').addEventListener('click', () => {
-    localStorage.setItem('container', JSON.stringify(document.getElementById('container').innerHTML))
-})
-document.getElementById('update-task').addEventListener('click', () => {
-    localStorage.setItem('container', JSON.stringify(document.getElementById('container').innerHTML))
-})
-
-
