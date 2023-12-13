@@ -62,7 +62,7 @@ export function createElementsWithGivenInputsThenAppend(obj){
             const updateTaskDisplayer = elementFactory('img','update','')
             const noteKeeper = elementFactory('div', 'note-keeper', '')
             noteKeeper.innerText = obj.notes
-            updateTaskDisplayer.setAttribute('src','/img/update.svg')
+            updateTaskDisplayer.setAttribute('src','./img/update.svg')
             updateTaskDisplayer.setAttribute('alt','update')
             updateTaskDisplayer.setAttribute('title','update')
             taskDiv.appendChild(prioritySpan)
