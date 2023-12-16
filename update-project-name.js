@@ -1,4 +1,5 @@
-import { changePriorityText } from "./collect-task-details.js"
+import { changePriorityText } from "./create-tasks.js"
+import checkDueDateValidity from "./date-validity.js"
 export default function updateProjectName(index){
     return document.getElementById(`para${index}`).innerText
 }
@@ -11,10 +12,7 @@ export function updateTaskDetails(){
     const allTaskLabels = document.getElementsByClassName('taskLabel')
     const allNoteKeeper = document.getElementsByClassName('note-keeper')
     
-    console.log(0)
     for(let z = 0; z < allTaskUpdateBtn.length; z++){
-    console.log(1)
-
         allTaskUpdateBtn[z].addEventListener('click', () => {
             updateTaskBtn.setAttribute('class', `update-task${z}`)
             document.getElementById('task-name').value = allTaskLabels[z].innerText
@@ -28,8 +26,10 @@ export function updateTaskDetails(){
         })
 
         updateTaskBtn.addEventListener('click', () => {
+            
             updateClickedTask(z)
-            updatePrioritySymbol()
+            updatePrioritySymbol() 
+            checkDueDateValidity()
         })
     }
 }
@@ -53,7 +53,6 @@ export function updateClickedTask(i){
             dateValue = ''
             taskNameValue = ''
     }
-    console.log('empty 2')
     priorityValue = ''
     taskNameValue = ''
     dateValue = ''
@@ -62,13 +61,7 @@ export function updateClickedTask(i){
 
 function updatePrioritySymbol(){
     const prioritySpan = document.getElementsByClassName('priority-span')
-
     for(let i = 0; i < prioritySpan.length; i++){
-        console.log('worked')
         prioritySpan[i].innerText = changePriorityText(prioritySpan[i].innerText, prioritySpan[i])
     }  
 }
-
-// export function checkIfDone(){
-//     const allCheckBoxs = 
-// }

@@ -1,16 +1,22 @@
-import generateDomForMainScreen, {toggleBtnClass,shuffleIds, addIdToBoxContainersAndDltBtns}from "./generate-cards.js"
+import generateDomForMainScreen, {toggleBtnClass, addIdToBoxContainersAndDltBtns}from "./generate-cards.js"
 import displayListMaker, { hideListMaker, displayTaskDetailsForm, hideProjectsContainer, hideTaskDetailsForm } from "./display-popups.js"
-import collectTaskDetails, {changePriorityText, createElementsWithGivenInputsThenAppend} from "./collect-task-details.js"
-import deleteSelectedTaskFromTasksList, { deleteWholeProject, emptyFillInputs } from "./delete-one-task.js"
-import { updateTaskDetails, updateClickedTask } from "./update-project-name.js"
-import changeMode from "./dark-mode.js"
+import collectTaskDetails, {createElementsWithGivenInputsThenAppend} from "./create-tasks.js"
+import deleteSelectedTaskFromTasksList, { deleteWholeProject, emptyFillInputs } from "./deletions.js"
+import { updateTaskDetails} from "./update-project-name.js"
+import changeMode from "./mode-changer.js"
+import checkDueDateValidity, {checkExpiredTasksAtLaunch} from "./date-validity.js"
+
+//+ Check expired tasks at launch:
+const allDueDate = document.getElementsByClassName('duedate-span')
+if(allDueDate.length > 0){
+    alert(checkExpiredTasksAtLaunch(allDueDate))
+}
 
 //+ Display newList generator:
 const addBtn = document.getElementById('add-new-list')
 addBtn.addEventListener('click', () => {
     displayListMaker()
 })
-
 
 //+ Generate newList:
 const createBoxBtn = document.getElementById('create-list')
@@ -31,7 +37,6 @@ createBoxBtn.addEventListener('click', () => {
     deleteWholeProject()
 
     toggleBtnClass()
-
 })
 
 cancelCreateBoxBtn.addEventListener('click', hideListMaker)
@@ -62,6 +67,7 @@ appendToTasksBtn.addEventListener('click', () => {
     deleteSelectedTaskFromTasksList()
     emptyFillInputs()
     updateTaskDetails()
+    checkDueDateValidity()
 })
 
 const hideListsBtn = document.getElementById('hide-tasks')

@@ -51,9 +51,8 @@ export function toggleBtnClass(){
     }
 }
 
+//+ add a unique id to every dltBtn + every boxContainer
 export function addIdToBoxContainersAndDltBtns(){
-
-    //+ add a unique id to every dltBtn + every boxContainer
     const deleteContainerBtn = document.getElementsByClassName('dltBtn')
     const allContainers = document.getElementsByClassName('box-container')
     const allBoxes = document.getElementsByClassName('box')
@@ -88,7 +87,6 @@ export function generateTasksLists(){
                 tasks.classList.add(`tasks${i}`)
                 tasks.setAttribute('id',`tasks${i}`)    
                 projectsContainer.appendChild(tasks)
-                console.log('REGENERATION 1')
             }
         }
         //+ CREATE TASKS DIVS THAT DON'T EXIST ALREADY:
@@ -97,11 +95,8 @@ export function generateTasksLists(){
             tasks.classList.add(`tasks${i}`)
             tasks.setAttribute('id',`tasks${i}`)    
             projectsContainer.appendChild(tasks)  
-            console.log('REGENERATION 2')
+
         }
-
-        //+ REASSIGN THEIR IDs:
-
     }
 }
 
@@ -115,6 +110,5 @@ export function shuffleIds(){
         boxes[z].setAttribute('id',`box${z}`) 
         dltBtns[z].setAttribute('id',`dltBtn${z}`)
         boxContainers[z].setAttribute('id',`box-container${z}`)
-        console.log('RESHAFLE')
     }
 }

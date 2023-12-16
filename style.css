@@ -35,8 +35,9 @@ textarea {
 
 body {
     color: var(--textColor);
-
 }
+
+
 #container {
     position: relative;
     display: grid;
@@ -256,6 +257,8 @@ position: relative;
 .Atask .duedate-span{
     grid-column: 6/10;
     font-size: 1.3rem;
+    color: var(--textColor);
+    font-weight: bold;
 }
 
 .Atask .priority-span {
@@ -292,6 +295,8 @@ position: relative;
 .taskLabel{
     grid-column: 2/6;
     justify-self: center;
+    color: var(--textColor);
+    font-weight: bold;
 }
 
 #add-task{
